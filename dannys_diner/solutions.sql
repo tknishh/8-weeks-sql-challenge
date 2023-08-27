@@ -32,3 +32,12 @@ GROUP BY customer_id, product_name;
 
 -- 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
 
+SELECT product_name, COUNT(s.product_id) as num_purchases
+FROM dannys_diner.sales s
+JOIN dannys_diner.menu m ON s.product_id = m.product_id
+GROUP BY product_name
+ORDER BY num_purchases DESC
+LIMIT 1;
+
+-- 5. Which item was the most popular for each customer?
+
